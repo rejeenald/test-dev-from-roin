@@ -19,5 +19,6 @@ def health_check(db: Session = Depends(get_db)):
     }
 
 Base.metadata.create_all(bind=engine)
-  
+
+app.include_router(store.router)    
 app.include_router(campaign.router)    
