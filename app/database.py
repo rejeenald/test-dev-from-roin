@@ -21,7 +21,7 @@ DBNAME = os.getenv("DBNAME")
 
 
 if PRODUCTION:
-    DATABASE_URL = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}"
+    DATABASE_URL =  f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
 else:
     DATABASE_URL = "sqlite:///./dalmailer.db"
 
