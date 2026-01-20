@@ -13,7 +13,7 @@ load_dotenv(CURRENT_DIR / ".env")
 PRODUCTION = True
 
 # Fetch variables
-USER = os.getenv("USER")
+USER = os.getenv("DB_USER")
 PASSWORD = os.getenv("PASSWORD")
 HOST = os.getenv("HOST")
 PORT = os.getenv("PORT")

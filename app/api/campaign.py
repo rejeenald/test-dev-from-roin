@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session 
 
-from app.database import get_db
+from app.db.sessions import get_db
 from app.schemas.campaign import CampaignCreate, CampaignResponse, CampaignUpdate
 from app.crud import campaign as campaign_crud
 from app.core.security import verify_api_key

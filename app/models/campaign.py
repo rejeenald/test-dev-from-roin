@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime, func
-from app.database import Base
+from app.db.sessions import Base
 
 
 class Campaign(Base):
