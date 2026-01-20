@@ -21,18 +21,22 @@ DBNAME = os.getenv("DBNAME")
 
 
 if PRODUCTION:
-    DATABASE_URL =  f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
+    DATABASE_URL =  f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}"
 else:
     DATABASE_URL = "sqlite:///./dalmailer.db"
 
 # manages the DB connection
-engine = create_engine(DATABASE_URL)
+engine = create_engine(
+    DATABASE_URL,
+    pool_pre_ping=True,
+    connect_args={"sslmode": "require"} if PRODUCTION else {})
 
 # creates new sessions for interacting with the DB
 SessionLocal = sessionmaker(
     autocommit=False, 
     autoflush=False, 
     bind=engine
+
 )
 
 # base class for declarative models
