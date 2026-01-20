@@ -39,10 +39,9 @@ This project is structured for clarity, scalability, and testability.
 ---
 ## How to run the project
 1. cd ..\test_dalmailer\
-2. Activate the virtual environment by running this command in the bash terminal: `source .venv/Scripts/activate`
-3. Then, install all the requirements by running this command: `pip install -r requirements.txt`
-4. To finally run the project, execute this command: `uvicorn app.main:app --reload`
-5. Go to http://127.0.0.1:8000/docs. You will see the following pages with its test-dev required endpoints (i.e. creation, retrieval, and deletion of a campaign, and retrieval of the campaigns).
+2. install all the requirements by running this command: `pip install -r requirements.txt`
+3. To finally run the project, execute this command: `uvicorn app.main:app --reload`
+4. Go to http://127.0.0.1:8000/docs. You will see the following pages with its test-dev required endpoints (i.e. creation, retrieval, and deletion of a campaign, and retrieval of the campaigns).
 ![alt text](image.png)
 
 ## ASSUMPTIONS and DESIGN DECISIONS
