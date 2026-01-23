@@ -15,7 +15,7 @@ if not is_production():
 
 class Settings:
     """Configuration settings for the application."""
-    PRODUCTION: bool = is_production()
+    PRODUCTION: bool = True#is_production()
     DB_USER: str = os.environ["DB_USER"]
     DB_PASSWORD: str = quote_plus(os.environ["DB_PASSWORD"])
     DB_HOST: str = os.environ["DB_HOST"]
@@ -26,6 +26,6 @@ class Settings:
     def DATABASE_URL(self) -> str:
         """Construct the database URL based on the environment."""
         if self.PRODUCTION:
-            return f"postgresql+psycopg2://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+            return f"postgresql+psycopg2://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}?sslmode=require"
         else:
             return "sqlite:///./dalmailer.db"
